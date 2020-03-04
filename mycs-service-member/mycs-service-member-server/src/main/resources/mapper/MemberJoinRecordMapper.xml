@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mycs.service.member.server.persistence.dao.MemberJoinRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.mycs.service.member.server.persistence.model.MemberJoinRecord">
+        <result property="memberJoinRecordId" column="member_join_record_id"/>
+        <result property="memberIdentityId" column="member_identity_id"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="uid" column="uid"/>
+        <result property="duration" column="duration"/>
+        <result property="amount" column="amount"/>
+        <result property="status" column="status"/>
+        <result property="device" column="device"/>
+        <result property="shareId" column="share_id"/>
+        <result property="sourceType" column="source_type"/>
+
+
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+       member_join_record_id,member_identity_id,create_by,create_time,update_by,update_time,uid,duration,amount,status,device,share_id,source_type
+    </sql>
+    <update id="updateJoinSuccess">
+        UPDATE member_join_record SET status = 1 WHERE  member_join_record_id = #{memberJoinRecordId}
+    </update>
+</mapper>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mycs.service.material.server.persistence.dao.ShareMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.mycs.service.material.server.persistence.model.Share">
+        <id column="share_id" property="shareId"/>
+        <result column="src_id" property="srcId"/>
+        <result column="src_name" property="srcName"/>
+        <result column="src_type" property="srcType"/>
+        <result column="share_uid" property="shareUid"/>
+        <result column="share_reason" property="shareReason"/>
+        <result column="share_code" property="shareCode"/>
+        <result column="share_time" property="shareTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        share_id, src_id, src_name, src_type, share_uid , share_reason , share_code , share_time , create_by , create_time, update_by , update_time
+    </sql>
+    <select id="howManyShare" resultType="java.lang.Integer">
+        SELECT count(*) FROM `share` s WHERE s.src_id = #{srcId} AND src_type = #{srcType};
+    </select>
+    <select id="selectFiveShareUid" resultType="java.lang.Long">
+      SELECT share_uid FROM `share` s WHERE s.src_id = #{srcId} AND src_type = #{srcType} GROUP BY share_uid  order by share_time desc limit 5;
+    </select>
+    <select id="selectFiveShare" resultMap="BaseResultMap">
+      SELECT <include refid="Base_Column_List"/>
+      FROM `share` s WHERE s.src_id = #{srcId} AND src_type = #{srcType} GROUP BY share_uid  order by share_time desc limit 5;
+    </select>
+
+    <select id="selectSharePage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `share` s
+        WHERE s.src_id = #{srcId} AND src_type = #{srcType}
+        order by share_time desc
+        LIMIT #{offset},#{limit}
+    </select>
+
+
+
+</mapper>

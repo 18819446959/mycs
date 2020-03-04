@@ -1,0 +1,4 @@
+###################  mycs配置  ###################
+mycs:
+  cookieDomain: mycs.uat
+  baseDomain: www.mycs.uat

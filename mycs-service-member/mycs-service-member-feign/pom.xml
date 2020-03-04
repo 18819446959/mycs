@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mycs-service-member</artifactId>
+        <groupId>cn.mycs</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mycs-service-member-feign</artifactId>
+    <properties>
+        <tg-service-course-provider>0.0.1-SNAPSHOT</tg-service-course-provider>
+        <tg-service-user-provider>0.0.1-SNAPSHOT</tg-service-user-provider>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-openfeign-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-hystrix</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.mycs</groupId>
+            <artifactId>mycs-service-material-provider</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-javanica</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.mycs</groupId>
+            <artifactId>mycs-front-3g-service-course-provider</artifactId>
+            <version>${tg-service-course-provider}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.mycs</groupId>
+            <artifactId>mycs-front-3g-service-user-provider</artifactId>
+            <version>${tg-service-user-provider}</version>
+        </dependency>
+
+    </dependencies>
+
+
+</project>

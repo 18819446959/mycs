@@ -1,0 +1,7 @@
+###################  redisson配置,通过spring.redis.redisson.config=classpath:application-redisson.yaml引入  ###################
+transportMode: NIO
+codec:
+#  class: org.redisson.codec.JsonJacksonCodec
+  class: cn.mycs.front.framework.redisson.JsonJacksonCodec
+singleServerConfig:
+  address: redis://redis.master.mycs.cn:15235

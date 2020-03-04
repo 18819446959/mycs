@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mysql://db.master.mycs.uat:3307/swwycourse?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: aulgx
+    password: tvxuhJT9eRDPuACB

@@ -1,0 +1,23 @@
+server:
+  port: 18510 #
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: mycs-business-examine-server # 项目名称
+  profiles:
+    active: log,nacos,redis,swaager
+  resources:
+    static-locations: classpath:/META-INF/resources/, classpath:/resources/, classpath:/static/, classpath:/public/,file:${PATH_PHOTO},file:${PATH_UEDITOR}
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 25000
+        readTimeout: 30000
+  httpclient:
+    connection-timeout: 5000
+  hystrix:
+    enabled: true

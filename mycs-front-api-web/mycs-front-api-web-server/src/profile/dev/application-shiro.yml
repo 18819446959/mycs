@@ -1,0 +1,9 @@
+###################  spring配置  ###################
+shiro:
+  enabled: true
+#  filterChain:
+#    '[/demo/**]': anon
+authencenter:
+  keys:
+    publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCfQhAnlE5FnnLeKreM7YmFJ9TFj8FcYToETzSeGWIb0zmaC3MhLPi8CSibOU4SVL/Q1rVaBrxmSrGOxfpsV4oEkMxP/DGdnznRwgjn6kY1j8yP/mbrmxPvPXVgFBoJl0m/J9LMUnFE1n6uRcxM2LCsvSa7xZXzwCSQRS7lJBfQrwIDAQAB
+  userRedisDbIndex: 5

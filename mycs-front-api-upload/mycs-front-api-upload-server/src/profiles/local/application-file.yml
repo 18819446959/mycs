@@ -1,0 +1,19 @@
+##### \u81EA\u5B9A\u4E49\u5C5E\u6027\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014
+file:
+  upload:
+    imgPath: D:/srv_swwy/swwy_photo
+    videoPath: D:/srv_swwy/swwy_video
+    videoTempPath: /data/uploadVideo_tmp/
+    attachmengPath: /srv_swwy/swwy_attachment/
+  import:
+    parsePath: D:/test/upload/parseFile
+    tempPath: D:/test/temp
+    defUploadPath: D:/
+    importTemplatePath: D:/test/temp
+
+
+oss:
+  endpoint: oss-cn-shenzhen.aliyuncs.com
+  accessKeyId: XXX
+  accessKeySecret: XXXX
+  bucketName: ksxx-test

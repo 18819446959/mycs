@@ -1,0 +1,5 @@
+spring:
+  redis:
+    host: redis.master.mycs.local
+    port: 15235
+    database: 0

@@ -1,0 +1,4 @@
+###################  mycs配置  ###################
+mycs:
+  cookieDomain: mycs.local
+  baseDomain: www.mycs.local

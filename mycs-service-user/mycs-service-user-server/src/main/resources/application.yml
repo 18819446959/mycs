@@ -1,0 +1,52 @@
+server:
+  port: 18550 #
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: mycs-service-user-server # 项目名称
+  profiles:
+    active: data,log,nacos,redis,swagger
+  resources:
+    static-locations: classpath:/META-INF/resources/, classpath:/resources/, classpath:/static/, classpath:/public/,file:${PATH_PHOTO},file:${PATH_UEDITOR}
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 10
+      filters: stat,wall
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 2000
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+###################  mybatis-plus配置  ###################
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  typeAliasesPackage: cn.mycs.service.user.server.persistence.model
+  global-config:
+    db-config:
+      id-type: id_worker #0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
+      table-underline: true
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: false
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 25000
+        readTimeout: 30000
+  httpclient:
+    connection-timeout: 5000
+  hystrix:
+    enabled: true

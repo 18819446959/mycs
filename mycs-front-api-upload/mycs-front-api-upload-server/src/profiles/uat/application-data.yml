@@ -1,0 +1,10 @@
+###################  spring配置  ###################
+spring:
+  redis:
+    redisson:
+      config: classpath:application-redisson.yml
+  rabbitmq:
+    host: rabbitmq.mycs.uat
+    port: 5673
+    username: mycs_zipkin
+    password: mycs.123

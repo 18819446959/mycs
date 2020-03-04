@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置数据源集合-->
+    <bean name="dataSourceList" class="cn.mycs.core.multidatasource.config.MultiDataSourcePropertiesList">
+        <property name="multiDataSourceProperties">
+            <array>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="swwydb"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/swwydb?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="swwycms"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/swwycms?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="swwycourse"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/swwycourse?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="swwylog"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/swwylog?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="swwylive"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/swwylive?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="swwymall"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/swwymall?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="swwymsg"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/swwymsg?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="swwypost"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/swwypost?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="swwysearch"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/swwysearch?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="swwyuser"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/swwyuser?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+                <bean class="cn.mycs.core.multidatasource.config.MultiDataSourceProperties">
+                    <property name="dataSourceName" value="mycsexam"/>
+                    <property name="url" value="jdbc:mysql://db.master.mycs.uat:3307/mycsexam?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useAffectedRows=true"/>
+                    <property name="username" value="aulgx"/>
+                    <property name="password" value="tvxuhJT9eRDPuACB"/>
+                </bean>
+            </array>
+        </property>
+    </bean>
+
+</beans>

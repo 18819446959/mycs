@@ -1,0 +1,71 @@
+###################  项目配置  ###################
+server:
+  port: 13420  # 项目启动端口
+
+###################  spring配置  ###################
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: mycs-front-api-upload  # 项目名称
+  profiles:
+    active: nacos, data, log, swagger, file, shiro, swagger
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 500MB
+    encoding:
+      enabled: true
+      charset: UTF-8
+#      force: true
+  jackson:
+    time-zone: GMT+8
+  mvc:
+    dispatch-options-request: true
+  aop:
+      proxy-target-class: true #false为启用jdk默认动态代理,true为cglib动态代理
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+  zipkin:
+    service:
+      name: ${spring.application.name}@${spring.cloud.client.ip-address}:${server.port}
+    sender:
+      type: rabbit
+  sleuth:
+    sampler:
+      probability: 1.0
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          thread:
+            timeoutInMilliseconds: 65000
+  threadpool:
+    default:
+      coreSize: 50
+      maxQueueSize: 1500
+      queueSizeRejectionThreshold: 1000
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full
+        readTimeout: 5000
+        connectTimeout: 5000
+  httpclient:
+    connection-timeout: 5000
+  hystrix:
+    enabled: true
+
+databasescope:
+  isApi: true
