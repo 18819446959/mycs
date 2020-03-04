@@ -38,10 +38,12 @@
   * 代码生成器
   * 统一跨域处理
   * 统一异常处理
+
 ## 4.项目目录结构
 * 总体目录
+
 ~~~
- mycs-java																			主目录
+ mycs        																		主目录
     ├─mycs-business-examine															聚合考核业务
     ├─mycs-component																组件
     │  ├─mycs-component-cache														缓存组件
@@ -62,14 +64,18 @@
     ├─mycs-service-file-system														文件系统微服务
     ├─mycs-service-material															素材微服务
     ├─mycs-service-member															会员微服务
+    └─mycs-service-user															    用户微服务
 ~~~
+
 * 微服务目录
+
 ~~~
 mycs-service-XXX
     ├─mycs-service-xxx-feign													微服务应用其他服务
     ├─mycs-service-xxx-provider													本服务提供给外服务接口包括dto
     └─mycs-service-xxx-server													本服务提供的接口实现服务
 ~~~
+
 ## 4. 内部开发规范
     整个项目强制遵循《阿里巴巴Java开发手册》
 ## 5. 项目总体架构
