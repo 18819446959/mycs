@@ -1,0 +1,51 @@
+pipeline{
+       //定义groovy脚本中使用的环境变量
+       environment{
+          //将构建任务中的构建参数转换为环境变量
+          IMAGE_TAG = sh(returnStdout: true,script: 'echo $image_tag').trim()
+          ORIGIN_REPO = sh(returnStdout: true,script: 'echo $origin_repo').trim()
+          REPO = sh(returnStdout: true,script: 'echo $repo').trim()
+          BRANC = sh(returnStdout: true,script: 'echo $branch').trim()
+       }
+
+       //定义本地构建使用哪个标签的构建环境
+       agent{
+         node{
+           label 'slave-pipeline'
+         }
+       }
+
+       //"stages"定义项目构建的多个模块，可以添加多个“stage”，可以多个"stage"串行或并行
+       stages{
+         stage('Git'){
+           steps{
+             git branch: '${BRANCH}', credentialsId: '07b328b6-7f97-4ba0-8e60-82482c71929e', url: 'ssh://git@183.238.74.218:15157/mycs_projects/mycs2020/mycs.git'
+           }
+         }
+         stage('Package'){
+          steps{
+            container("maven") {
+               sh "mvn clean install -P test -Dmaven.test.skip=true -e -f mycs/mycs-service-user/pom.xml"
+            }
+          }
+         }
+         //运行容器构建和推送命令，用到了environment中定义的groovy环境变量
+         stage('Image Build And Pushlish'){
+           steps{
+             container{"kaniko"}
+               sh "kaniko -f `pwd`/Dockerfile -c `pwd` --destination=${ORIGIN_REPO}/${REPO}:{IMAGE_TAG} --skip-tls-verify"
+           }
+         }
+         //部署指定deployment部署到指定k8s集群
+         stage('Deploy to Kubernetes'){
+            parallel {
+                steps {
+                    container('kubectl') {
+                       step([$class: 'KubernetesDeploy',authMethod: 'certs',apiServerUrl:'https://172.16.58.69:6443',credentialsId:'k8sCertAuth',config:'user-deployment.yaml',variableState: 'ORIGIN_REPO,REPO,IMAGE_TAG'])
+                    }
+                }
+            }
+         }
+       }
+
+}
