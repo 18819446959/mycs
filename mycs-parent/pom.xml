@@ -42,7 +42,7 @@
         <shiro.version>1.4.0</shiro.version>
         <swagger.version>2.9.2</swagger.version>
         <swagger-guava.version>26.0-jre</swagger-guava.version>
-        <commons.io.version>2.5</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <velocity.version>1.7</velocity.version>
         <zxing.version>3.2.1</zxing.version>
         <ehcache.core.version>2.6.11</ehcache.core.version>
